@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sally房贷顾问</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="/images/logo.png">
+    <script src="https://kit.fontawesome.com/83639f69d5.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <nav>
+    <a href="#header"><img src="images/logo.png" alt=""></a>
+    <ul id="sidemenu">
+      <li><a href="#header">主页</a></li>
+      <li><a href="#about">关于我</a></li>
+      <li><a href="#services">服务</a></li>
+      <li><a href="#process">申请准备</a></li>
+      <li><a href="#">实用工具</a></li>
+      <li><a href="#">Chat-GPT评估</a></li>
+      <li><a href="#contact">联系方式</a></li>
+      <li><i class="fas fa-regular fa-circle-xmark" onclick="closemenu()"></i></li>
+    </ul>
+    <i class="fas fa-solid fa-bars" onclick="openmenu()"></i>
+  </nav>
+
+  <!-- ------------------------Header-------------------------- -->
+    <div id="header" class="container">
+      <div class="header-text">
+        <!-- Mortgage Broker Specialist -->
+        <p>澳洲银行 贷款经纪</p>
+        <h1>我是 <span>Sally。</span><br>您的资深房贷顾问</h1>
+      </div>
+    </div>
+
+  <!------------------------- About -------------------------->
+  <div id="about" class="container">
+    <div class="row">
+      <div class="about-col-img">
+        <img src="images/Sally_logo_upright.jpg" alt="">
+      </div>
+      <div class="about-col-content">
+            <h1 class="sub-title">为什么信赖Sally?</h1>
+            <div class="about-list">               
+              <div>
+                <i class="fa-solid fa-calendar-days"></i>
+                <h2>10年+</h2>
+                <p>丰富贷款行业经验</p>
+              </div>   
+              <div>
+                <i class="fa-solid fa-money-bill-trend-up"></i>
+                <h2>累计超亿</h2>
+                <p>个人贷款规模</p>
+              </div>
+              <div class="card">
+                <i class="fa-solid fa-people-group"></i>
+                <h2>1000+</h2>
+                <p>成功客户案例</p>
+              </div>             
+              <div>
+                <i class="fa-solid fa-handshake-angle"></i>
+                <h2>全面代理</h2>
+                <p>澳洲银行和金融机构</p>
+                <p>各类贷款业务</p>
+              </div>
+              <div>
+                <i class="fa-solid fa-award"></i>
+                <h2>行业资质</h2>
+                <p>MFAA澳洲抵押贷款</p>
+                <p>与金融协会</p>
+                <p>注册信贷经纪人</p>
+              </div>                  
+              <div>
+                <i class="fa-solid fa-graduation-cap"></i>
+                <h2>专业背景</h2>
+                <p>悉尼大学</p>
+                <p>会计/国际金融 双硕士</p>
+              </div>                  
+            </div>
+      </div>
+        <!-- <h1 class="sub-title">为什么信赖Sally?</h1>
+        <p></p>
+        <div class="tab-titles">
+          <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+          <p class="tab-links" onclick="opentab('experience')">Experience</p>
+          <p class="tab-links" onclick="opentab('education')">Education</p>
+        </div>
+        <div class="tab-contents active-tab" id="skills">
+          <ul>
+            <li><span>UI?UX</span><br>Designing Web/App interfaces</li>
+            <li><span>Web Development</span><br>Web app interfaces</li>
+            <li><span>App Development</span><br>Building Android/iOS apps</li>
+          </ul>
+        </div>
+        <div class="tab-contents" id="experience">
+          <ul>
+            <li><span>Ex1</span><br>Designing Web/App interfaces</li>
+            <li><span>Ex2</span><br>Designing Web/App interfaces</li>
+            <li><span>EX3</span><br>Designing Web/App interfaces</li>
+          </ul>
+        </div>  
+        <div class="tab-contents" id="education">
+          <ul>
+            <li><span>悉尼大学</span><br>Designing Web/App interfaces</li>
+            <li><span>Ed2</span><br>Designing Web/App interfaces</li>
+            <li><span>Ed3</span><br>Designing Web/App interfaces</li>
+          </ul>
+        </div>                   -->
+      </div>
+    </div>
+  </div>
+ 
+  <!-- --------------------Services--------------------- -->
+  <div id="services" class="container">
+    <h1 class="sub-title">五星级贷款金融服务</h1>
+    <div class="services-list">
+      <div>
+        <i class="fas fa-house-user"></i>
+        <h2>免费办理</h2>
+        <p>
+          <ul>
+            <li>无论新老客户</li>
+            <li>任何贷款种类、不限金额</li>
+            <li>从咨询、申请、追踪</li>
+            <li>到还款期管理</li>
+            <li>全周期“0”元免费</li>              
+          </ul>
+      </p>
+        <!-- <a href="#">了解更多...</a> -->
+      </div>
+      <div>
+        <i class="fa-solid fa-piggy-bank"></i>
+        <h2>超低利率</h2>
+        <p>
+          <ul>
+            <li>独享业内超低贷款利率</li>
+            <li>囊括全系列促销特惠：
+              <ul>
+                <li>首次置业</li>
+                <li>自住、投资</li>
+                <li>房屋转贷</li>
+                <li>商业贷款</li>
+                <li>汽车贷款</li>
+              </ul>
+            </li>
+          </ul></p>
+        <!-- <a href="#">了解更多...</a> -->
+      </div>
+      <div>
+        <i class="fa-solid fa-scissors"></i>
+        <h2>量身定制</h2>
+        <p>
+        <ul>
+          <li>细致入微地分析您的财务状况</li>
+          <li>规避各类风险、误区和陷阱</li>
+          <li>打造您的专属贷款方案</li>
+        </ul>
+        </p>
+        <!-- <a href="#">了解更多...</a> -->
+      </div>
+      <div>
+        <i class="fa-solid fa-rocket"></i>
+        <h2>快捷获批</h2>
+        <p>
+          <ul>
+            <li>管家式申请进度追踪</li>
+            <li>密切配合您的置业交易时间表</li>
+            <li>从容应对各种变化</li>
+            <li>确保贷款安全、快速获批</li>
+          </ul>
+        </p>
+        <!-- <a href="#">了解更多...</a> -->
+      </div>
+    </div>
+  </div>
+
+  <!-- -----------------------Process------------------------ -->
+  <div id="process" class="container">
+    <h1 class="sub-title">申请资料准备</h1>
+    <div class="work-list">
+      <div class="work">
+        <img src="images/passport.jpg">
+        <div class="layer">
+          <h3>有效证件</h3>
+          <p>
+            <ul>
+              <li>澳洲护照，或</li>
+              <li>澳洲签证信</li>
+              <li>澳洲驾照</li>
+            </ul>
+          </p>
+          <a href="#"><i class="fa-solid fa-passport"></i></a>
+        </div>
+      </div>
+      <div class="work">
+        <img src="images/salary.jpg">
+        <div class="layer">
+          <h3>收入类文件</h3>
+          <p>
+            <ul>
+              <li>上班：工资单和银行进账单</li>
+              <li>自雇：税单和报税记录</li>
+              <li>投资物业：租金单</li>
+            </ul>
+          </p>
+          <a href="#"><i class="fa-solid fa-hand-holding-dollar"></i></a>
+        </div>
+      </div>
+      <div class="work">
+        <img src="images/credit card.jpg">
+        <div class="layer">
+          <h3>负债类文件</h3>
+          <p>
+            <ul>
+              <li>已有房贷信息</li>
+              <li>车贷、个贷资料</li>
+              <li>助学贷款账单</li>
+              <li>信用卡账单</li>
+              <li>先买后付账单</li>                
+            </ul>
+          </p>
+          <a href="#"><i class="fa-solid fa-credit-card"></i></a>
+        </div>
+      </div>     
+      <div class="work">
+        <img src="images/house.jpg">
+        <div class="layer">
+          <h3>资产类文件</h3>
+          <p>
+            <ul>
+              <li>持有物业的市政费单</li>
+              <li>首付和印花税存款证明或赠予信</li>
+              <li>其他相关资产信息</li>              
+            </ul>
+          </p>
+          <a href="#"><i class="fa-solid fa-house-medical-circle-check"></i></a>
+        </div>
+      </div>  
+      <div class="work">
+        <img src="images/invoice.jpg">
+        <div class="layer">
+          <h3>生活支出</h3>
+          <p>
+            <ul>
+              <li>家庭状况</li>
+              <li>收入水平</li>
+              <li>物业成本</li>
+              <li>居住情况</li>
+              <li>医疗保险</li>                
+            </ul>
+          </p>
+          <a href="#"><i class="fa-solid fa-file-invoice-dollar"></i></a>
+        </div>
+      </div>                     
+    </div>
+  </div>
+
+  <!-- ---------------------------Contact-------------------------- -->
+  <div id="contact" class="container">
+    <div class="row">
+      <div class="contact-left">
+        <h1 class="sub-title">联系方式：</h1>
+        <p><i class="fa-solid fa-paper-plane"></i>zongweigong@gmail.com</p>
+        <p><i class="fa-solid fa-square-phone"></i>(61) 0466-809-027</p>
+        <div class="social-icons">
+          <a href="#"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#"><i class="fa-brands fa-weixin"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+        <!-- <a href="#" download class="btn btn2">Download CV</a> -->
+      </div>
+      <div class="contact-right">
+        <form name="submit-to-google-sheet">
+          <input type="text" name ="name" placeholder="Your Name" required>
+          <input type="email" name = "email" placeholder="Your Email" required>
+          <textarea name="message" id="" cols="30" rows="6" placeholder="Your Message"></textarea>
+          <button type="submit" class="btn btn2">Submit</button>
+        </form>
+        <span id="msg"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- -----------------------------Foot Copyright ---------------------- -->
+  <div class="copyright">
+    <p>Copyright © Sally. Gong</p>
+  </div>
+
+  <script>
+    var tablinks = document.getElementsByClassName("tab-links");
+    var tabcontents = document.getElementsByClassName("tab-contents");
+    
+    function opentab(tabname){
+
+      //remove lostfocus tab
+      for(tablink of tablinks){
+        tablink.classList.remove("active-link");
+      }
+
+      for(tabcontent of tabcontents){
+        tabcontent.classList.remove("active-tab");
+      }
+      
+      //add focus tab
+      event.currentTarget.classList.add("active-link");
+      
+      document.getElementById(tabname).classList.add("active-tab");
+
+    }
+  </script>
+
+  <script>
+    var sidemenu = document.getElementById("sidemenu");
+
+    function openmenu(){
+      sidemenu.style.right = "0";
+    }
+
+    function closemenu(){
+      sidemenu.style.right = "-200px";
+    }
+  </script>
+  
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwTPpuvZKNwGTpKVA44FpJsvBicwyugb1V79_cCkeG4Np4JxmWPHQW8qclrYU0EUeHygQ/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg = document.getElementById("msg")
+
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+          msg.innerHTML = "提交成功！我将尽快与您联系，谢谢！"
+          setTimeout(function(){
+            msg.innerHTML = ""
+          }, 5000)
+          form.reset()
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+</body>
+</html>
