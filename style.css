@@ -18,7 +18,7 @@ nav {
   padding: 1px 10% 1px 5%;
   position: sticky;
   top: 0;
-  background: linear-gradient(#000, transparent);
+  background: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -209,11 +209,53 @@ nav img {
 }
 
 */
+.rate-list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(auto, 1fr));
+  grid-gap: 60px;
+  margin-top: 30px;
+}
+
+.ratetype-row {
+  display: none;
+}
+
+.ratetype {
+  grid-column: span 2;
+  margin-left: 5px;
+  font-size: 25px;
+  font-style: italic;
+  border-bottom: double;
+  border-bottom-color: #ff004f;
+  border-bottom-width: 5px;
+}
+
+.ratecard {
+  background: #262626;
+  padding: 20px 25px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px 8px #eb4e70;
+}
+
+.ratecard h3 {
+  font-size: 25px;
+}
+
+.ratecard p {
+  margin: 20px 0px;
+  font-size: 35px;
+}
+
+.ratecard p span {
+  font-size: 15px;
+}
+
 /* -----------------services----------------- */
 .services-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-gap: 20px;
+  grid-gap: 30px;
   margin-top: 30px;
 }
 
@@ -270,6 +312,7 @@ nav img {
   border-radius: 10px;
   position: relative;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .work img {
@@ -312,7 +355,7 @@ nav img {
   margin-bottom: 20px;
 }
 
-.layer a {
+.layer i {
   margin-top: 20px;
   color: #ff004f;
   text-decoration: none;
@@ -454,6 +497,45 @@ nav .fas {
     left: 25px;
     cursor: pointer;
   }
+  .rate-list {
+    margin: 10px 30px 0px 0px;
+    grid-gap: 30px 60px;
+  }
+  .ratetype {
+    display: none;
+  }
+  .ratetype-row {
+    grid-column: span 4;
+    max-width: 50%;
+    min-width: 280px;
+    display: flex;
+    justify-content: space-around;
+    font-size: 20px;
+    cursor: pointer;
+    background: #262626;
+    border-radius: 5px;
+  }
+  .ratetype-row div {
+    flex-basis: 50%;
+    padding: 10px 0px;
+    text-align: center;
+    border-radius: 5px;
+    transition: 0.5s;
+  }
+  .ratetype-row div:hover {
+    text-shadow: 2px 2px 10px;
+    box-shadow: 0px 0px 10px;
+  }
+  .active-link {
+    background-color: #9e2842;
+  }
+  .ratecard {
+    grid-column: span 2;
+    display: none;
+  }
+  .ratecard.active {
+    display: block;
+  }
 }
 
 @media only screen and (max-width: 860px) {
@@ -470,7 +552,8 @@ nav .fas {
     flex-basis: 100%;
   }
   .about-list div {
-    width: 100%;
+    width: 50%;
+    padding: 10px;
   }
   .header-text {
     margin-top: 100%;
@@ -494,6 +577,9 @@ nav .fas {
   .about-list {
     font-size: 16px;
     margin-right: 20px;
+  }
+  .ratecard {
+    grid-column: span 4;
   }
   .contact-left, .contact-right {
     flex-basis: 100%;

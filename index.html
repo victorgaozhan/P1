@@ -15,9 +15,9 @@
     <ul id="sidemenu">
       <li><a href="#header">主页</a></li>
       <li><a href="#about">关于我</a></li>
+      <li><a href="#rates">最新利率</a></li>      
       <li><a href="#services">服务</a></li>
       <li><a href="#process">申请准备</a></li>
-      <li><a href="#">实用工具</a></li>
       <li><a href="#">Chat-GPT评估</a></li>
       <li><a href="#contact">联系方式</a></li>
       <li><i class="fas fa-regular fa-circle-xmark" onclick="closemenu()"></i></li>
@@ -110,7 +110,36 @@
       </div>
     </div>
   </div>
- 
+
+ <!-- ----------------------Interest Rates----------------- -->
+<div id="rates" class="container">
+  <h1 class="sub-title">住房贷款最新利率</h1>
+  <div class="rate-list">
+      <div class="ratetype">自住房贷</div>
+      <div class="ratetype">投资房贷</div>
+      <div class="ratetype-row">
+        <div class="ratelink active-link" onclick="opentab('self-occupied')">自住房贷</div>
+        <div class="ratelink " onclick="opentab('investment')">投资房贷</div>
+      </div>
+      <div class="ratecard active" id="self-occupied1">
+        <h3>固定利率</h3>
+        <p>5.18%<span> 起</span></p>
+      </div>
+      <div class="ratecard active" id="self-occupied2">
+        <h3>浮动利率</h3>
+        <p>5.38%<span> 起</span></p>
+      </div>
+      <div class="ratecard" id="investment1">
+        <h3>固定利率</h3>
+        <p>5.48%<span> 起</span></p>
+      </div>
+      <div class="ratecard" id="investment2">
+        <h3>浮动利率</h3>
+        <p>5.68%<span> 起</span></p>
+      </div>
+  </div>
+</div>
+
   <!-- --------------------Services--------------------- -->
   <div id="services" class="container">
     <h1 class="sub-title">五星级贷款金融服务</h1>
@@ -190,7 +219,7 @@
               <li>澳洲驾照</li>
             </ul>
           </p>
-          <a href="#"><i class="fa-solid fa-passport"></i></a>
+          <i class="fa-solid fa-passport"></i>
         </div>
       </div>
       <div class="work">
@@ -204,7 +233,7 @@
               <li>投资物业：租金单</li>
             </ul>
           </p>
-          <a href="#"><i class="fa-solid fa-hand-holding-dollar"></i></a>
+          <i class="fa-solid fa-hand-holding-dollar"></i>
         </div>
       </div>
       <div class="work">
@@ -220,7 +249,7 @@
               <li>先买后付账单</li>                
             </ul>
           </p>
-          <a href="#"><i class="fa-solid fa-credit-card"></i></a>
+          <i class="fa-solid fa-credit-card"></i>
         </div>
       </div>     
       <div class="work">
@@ -234,7 +263,7 @@
               <li>其他相关资产信息</li>              
             </ul>
           </p>
-          <a href="#"><i class="fa-solid fa-house-medical-circle-check"></i></a>
+          <i class="fa-solid fa-house-medical-circle-check"></i>
         </div>
       </div>  
       <div class="work">
@@ -250,7 +279,7 @@
               <li>医疗保险</li>                
             </ul>
           </p>
-          <a href="#"><i class="fa-solid fa-file-invoice-dollar"></i></a>
+          <i class="fa-solid fa-file-invoice-dollar"></i>
         </div>
       </div>                     
     </div>
@@ -289,8 +318,8 @@
   </div>
 
   <script>
-    var tablinks = document.getElementsByClassName("tab-links");
-    var tabcontents = document.getElementsByClassName("tab-contents");
+    var tablinks = document.getElementsByClassName("ratelink");
+    var tabcontents = document.getElementsByClassName("ratecard");
     
     function opentab(tabname){
 
@@ -300,13 +329,14 @@
       }
 
       for(tabcontent of tabcontents){
-        tabcontent.classList.remove("active-tab");
+        tabcontent.classList.remove("active");
       }
       
       //add focus tab
       event.currentTarget.classList.add("active-link");
       
-      document.getElementById(tabname).classList.add("active-tab");
+      document.getElementById(tabname+"1").classList.add("active");
+      document.getElementById(tabname+"2").classList.add("active");
 
     }
   </script>
