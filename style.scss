@@ -145,8 +145,10 @@ nav{
     display: flex;
     justify-content:flex-start;
     flex-wrap: wrap;
+    
     div {
         margin: 20px 0;
+        padding: 0 5px;
         width: 40%;
         i{
             font-size: 50px;
@@ -549,8 +551,8 @@ nav{
         font-size: 18px;
     }
     select{
-        width: 75px;
-        font-size: 17px;
+        width: 105px;
+        font-size: 15px;
     }
 
     .form-button{
@@ -623,7 +625,7 @@ nav .fas{
     .ratetype-row{
         grid-column: span 4;
         max-width: 50%;
-        min-width: 280px;
+        min-width: 322px;
         display: flex;
         justify-content: space-around;
         font-size: 20px;
@@ -732,6 +734,14 @@ nav .fas{
 
     .chatGPT-form{
         grid-template-columns: repeat(1, minmax(350px, 1fr));
+        input[type=text]{
+            width: 95px;
+            font-size: 17px;
+        }
+        select{
+            width: 90px;
+            font-size: 14px;
+        }
     }
 
     .contact-left, .contact-right{

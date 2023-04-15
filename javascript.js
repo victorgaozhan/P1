@@ -1,12 +1,10 @@
 var tablinks = document.getElementsByClassName("ratelink");
 var tabcontents = document.getElementsByClassName("ratecard");
-
 var sidemenu = document.getElementById("sidemenu");
 
 const scriptURL = 'https://script.google.com/macros/s/AKfycbwTPpuvZKNwGTpKVA44FpJsvBicwyugb1V79_cCkeG4Np4JxmWPHQW8qclrYU0EUeHygQ/exec'
 const form = document.forms['submit-to-google-sheet']
 const msg = document.getElementById("msg")
-
 
 // -------------------------save contacts to google sheets ------------------
 form.addEventListener('submit', e => {
@@ -57,8 +55,122 @@ function closemenu(){
   sidemenu.style.right = "-200px";
 }
 
-if(navigator.language.substring(0, 2) != "zh"){
-  let t = document.getElementById('sidemenu').getElementsByTagName('a');
-  // t.innerText = 'Home';
+// ----------------------------Multi Language ------------------------
+
+class Translation{
+  constructor(name, nameType, value, tags){
+    this.name = name, //the value of element's id or class
+    this.nameType = nameType;//type: id or class
+    this.value = value; //Inner Text Array
+    this.tags = tags; //tags Array
+  }
 }
 
+const contents = [
+  new Translation("title", "tag", ["Mortgage Broker: Sally"], null),
+  new Translation("sidemenu", "id", null, 
+  [
+    { tagName: "a", values: ["Home", "About", "Rates", "Service", "Application", "Contact","AI Evaluation"]},
+  ]),
+  new Translation("header", "id", null, 
+  [
+    { tagName: "p", values: ["Australia Mortgage"]},
+    { tagName: "h1", values: ["I am <span>Sally. </span><br>Your Mortgage Broker"]},
+  ]),    
+  new Translation("sub-title", "class", 
+  ["Why do you trust me?", "Interest Rates", "Five Star Financial Service", "Application", "Contacts", "Chat-GPT"], null),   
+  new Translation("about-list", "class", null, 
+  [
+    { tagName: "h2", values: ["10+ years", "100+ Million", "1000+", "50+","Qulification","Education"]},
+    { tagName: "p", values: ["Rich experience in loan industry", "Personal loan scale", 
+    "Successful customer cases", "Australian banks and financial institutions",""
+    ,"Mortgage Finance Association Australia","Registered Broker","","Master of Accounting/International Finance","" ]},
+  ]),  
+  new Translation("ratetype", "class", ["Owner occupied", "Investment"], null),
+  new Translation("ratelink", "class", ["Owner occupied", "Investment"], null),
+  new Translation("ratecard", "class", null, [
+    {tagName: "h3", values: ["Fixed", "Variable","Fixed", "Variable"]},
+    {tagName: "p", values: ["<span>From </span>5.18%", 
+    "<span>From </span>5.36%",
+    "<span>From </span>5.49%", 
+    "<span>From </span>5.64%"]},
+  ]),
+  new Translation("services-list", "class", null, [
+    {tagName: "h2", values: ["$0 Fee", "Low rates","Customization", "Fast"]},
+    {tagName: "li", values: ["Both of new or old customers", "Any kind of bank loan",
+    "Consulting, application, tracking", "Management of the repayment","Totally $0 fee",
+    "Ultra-low lending rates",
+    "Include a full range of promotions<ul><li>Owner occupied and investment</li><li>Refinance</li><li>Busness loan</li><li>Car loan</li></ul>","","","","","",
+    "Analyze your financial situation in detail","Avoid risks, mistakes and traps","Create your own loan package",
+    "Application progress tracking","Closely match your property settling schedule","Cope with changes","Ensure secure and fast approval"
+    ]},
+  ]),
+  new Translation("work-list", "class", null, [
+    {tagName: "h3", values: ["Id Certificates", "Income Files","Liabilitis", "Assets", "Living expenses"]},
+    {tagName: "li", values: ["Passport, or", "Visa letter", "Driver License", "Pay slip & Bank receipt","Tax bill & Tax record","Rent Income",
+    "Home loan","Car loan & Personal loan", "Student loan","Credit Card bill","After pay bill",
+    "Property council bills","Down payment & Stamp tax","Gift letter","Family status","Income", "Property Cost","Residence", "Medical insurance"
+    ]},
+  ]),
+  new Translation("formrow-title", "class", ["Income", "Expenses","Personal Details"], null),
+  new Translation("label", "tag", ["Net Income 1", "Net Income 2","Other net income1","Other net income2","Other net income3",
+    "Living expenses","Home rent","Car loan","Home loan","Left to repay","Term","Credit card limits",
+    "Dependants","", "","Loan terms"],null),
+    new Translation("period", "class", null, [
+      {tagName:"option", values: ["Annually","Monthly","Fortnightly","Weekly","Annually","Monthly","Fortnightly","Weekly","Annually","Monthly","Fortnightly","Weekly",
+      "Annually","Monthly","Fortnightly","Weekly","Annually","Monthly","Fortnightly","Weekly","Annually","Monthly","Fortnightly","Weekly","Annually","Monthly","Fortnightly","Weekly",
+      "Annually","Monthly","Fortnightly","Weekly","Annually","Monthly","Fortnightly","Weekly",]}]),       
+  new Translation("custom_radio","class",null, [
+    {tagName:"div", values:["Single","Joint Income","Owner occupied","Investment"]}
+  ]),
+  new Translation("button","tag",["Submit", "Submit"], null),
+];
+
+if(navigator.language.substring(0, 2) != "zh"){
+  contents.forEach(tran => {
+    let element;
+    switch(tran.nameType)
+    {
+      case "id":
+        element = document.getElementById(tran.name);
+      break;
+      case "class":
+        element = document.getElementsByClassName(tran.name);
+      break;
+      case "tag":
+        element = document.getElementsByTagName(tran.name);
+      break;
+    }
+
+    if(tran.value != null){
+      if(Array.isArray(tran.value))
+      {
+        for (let i = 0; i < tran.value.length; i++)
+          element[i].innerHTML = tran.value[i];
+      }
+      else
+        element.innerHTML = tran.value;
+    }
+
+    if(tran.tags != null){
+      tran.tags.forEach(tag=>{
+        let tagNames = [];
+
+        if(element.length > 0){
+            for (let i = 0; i < element.length; i++) {
+              var tags = element[i].getElementsByTagName(tag.tagName);
+              for (let j = 0; j < tags.length; j++) {
+                tagNames.push(tags[j]);
+              }
+            }
+        }
+        else
+          tagNames = element.getElementsByTagName(tag.tagName);
+
+        for (let i = 0; i < tag.values.length; i++)
+          tagNames[i].innerHTML = tag.values[i];
+      });
+    }
+  });
+
+}
