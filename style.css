@@ -102,7 +102,7 @@ nav img {
 }
 
 .container {
-  padding: 50px 2% 50px 2%;
+  padding: 50px 5%;
 }
 
 .row {
@@ -388,6 +388,12 @@ nav img {
   background: #ff004f;
 }
 
+.contactrow {
+  max-width: 1500px;
+  display: flex;
+  justify-content: space-between;
+}
+
 .contact-left {
   flex-basis: 35%;
 }
@@ -467,11 +473,108 @@ nav img {
   display: block;
 }
 
+.chatGPT-form {
+  margin-top: 30px;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(350px, 1fr));
+  grid-gap: 20px;
+  max-width: 1500px;
+}
+
+.chatGPT-form .form-card {
+  background-color: #262626;
+  border-radius: 8px;
+}
+
+.chatGPT-form .formrow-title {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0 20px;
+  font-size: 25px;
+}
+
+.chatGPT-form .formrow {
+  display: flex;
+  justify-content: left;
+  padding: 5px 10px;
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+
+.chatGPT-form .formrow label {
+  flex-basis: 130px;
+}
+
+.chatGPT-form .custom_radio {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.chatGPT-form .custom_radio div {
+  flex-basis: 50%;
+  padding: 8px 0px;
+  text-align: center;
+  border-radius: 5px;
+  transition: 0.5s;
+  box-shadow: 0 0 5px;
+}
+
+.chatGPT-form .custom_radio div:hover {
+  text-shadow: 2px 2px 10px;
+  box-shadow: 0px 0px 10px;
+  cursor: pointer;
+}
+
+.chatGPT-form input, .chatGPT-form select {
+  border: 0;
+  background-color: #262626;
+  box-shadow: 0px 0px 6px 1px #fff;
+  color: #fff;
+  padding: 0px 5px;
+  border-radius: 3px;
+  height: 30px;
+  transition: 0.4s;
+}
+
+.chatGPT-form input:hover, .chatGPT-form select:hover {
+  box-shadow: 0px 0px 10px 2px;
+}
+
+.chatGPT-form input[type=text] {
+  width: 120px;
+  font-size: 18px;
+}
+
+.chatGPT-form select {
+  width: 75px;
+  font-size: 17px;
+}
+
+.chatGPT-form .form-button {
+  grid-column: -1/1;
+  margin: 10px auto;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.active-link {
+  background-color: #9e2842;
+}
+
+.chatGPT-report {
+  display: none;
+}
+
 nav .fas {
   display: none;
 }
 
 @media screen and (max-width: 1200px) {
+  .chatGPT-form {
+    grid-template-columns: repeat(2, minmax(350px, 1fr));
+  }
   nav .fas {
     display: block;
     font-size: 25px;
@@ -526,9 +629,6 @@ nav .fas {
     text-shadow: 2px 2px 10px;
     box-shadow: 0px 0px 10px;
   }
-  .active-link {
-    background-color: #9e2842;
-  }
   .ratecard {
     grid-column: span 2;
     display: none;
@@ -580,6 +680,9 @@ nav .fas {
   }
   .ratecard {
     grid-column: span 4;
+  }
+  .chatGPT-form {
+    grid-template-columns: repeat(1, minmax(350px, 1fr));
   }
   .contact-left, .contact-right {
     flex-basis: 100%;
