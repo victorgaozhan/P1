@@ -9,9 +9,10 @@
     <link rel="icon" type="image/x-icon" href="/images/logo.png">
     <script src="https://kit.fontawesome.com/83639f69d5.js" crossorigin="anonymous"></script>
 </head>
-<body>
+<body onload="init_lang();">
   <nav>
     <a href="#header"><img src="images/logo.png" alt=""></a>
+    <div>
     <ul id="sidemenu">
       <li><a href="#header">主页</a></li>
       <li><a href="#about">关于我</a></li>
@@ -23,6 +24,11 @@
       <li><i class="fas fa-regular fa-circle-xmark" onclick="closemenu()"></i></li>
     </ul>
     <i class="fas fa-solid fa-bars" onclick="openmenu()"></i>
+    <select id="language" onchange="change_lang()">
+      <option name="en">EN</option>
+      <option name="zh">中文</option>
+    </select>
+  </div>
   </nav>
 
   <!-- ------------------------Header-------------------------- -->
@@ -299,7 +305,7 @@
 
   <div id="chatGPT" class="container">
     <h1 class="sub-title">Chat-GPT智能评估</h1>
-    <form action="" class="chatGPT-form" method="post">
+    <form action="javascript:void(0);" class="chatGPT-form" method="post" onsubmit="sentApplication()">
       <div class="form-card">
         <div class="formrow-title">收 入</div>
         <div class="formrow">

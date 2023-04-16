@@ -1,6 +1,7 @@
 var tablinks = document.getElementsByClassName("ratelink");
 var tabcontents = document.getElementsByClassName("ratecard");
 var sidemenu = document.getElementById("sidemenu");
+var lang = document.getElementById("language");
 
 const scriptURL = 'https://script.google.com/macros/s/AKfycbwTPpuvZKNwGTpKVA44FpJsvBicwyugb1V79_cCkeG4Np4JxmWPHQW8qclrYU0EUeHygQ/exec'
 const form = document.forms['submit-to-google-sheet']
@@ -126,51 +127,110 @@ const contents = [
   new Translation("button","tag",["Submit", "Submit"], null),
 ];
 
-if(navigator.language.substring(0, 2) != "zh"){
-  contents.forEach(tran => {
-    let element;
-    switch(tran.nameType)
-    {
-      case "id":
-        element = document.getElementById(tran.name);
-      break;
-      case "class":
-        element = document.getElementsByClassName(tran.name);
-      break;
-      case "tag":
-        element = document.getElementsByTagName(tran.name);
-      break;
-    }
+function change_lang(){
+  let lang = "";
+  if(event.currentTarget.selectedIndex == 1){
+    lang = "?lang=zh";
+  }
+  else{
+    lang = "?lang=en";
+  }
 
-    if(tran.value != null){
-      if(Array.isArray(tran.value))
+  window.location.replace(location.protocol + '//' + location.host + location.pathname + lang);
+}
+
+function init_lang(){
+  var lang = "";
+  const queryString = window.location.search;
+  if(queryString.length > 0)
+  {
+    var urlParams = new URLSearchParams(queryString);
+    lang = urlParams.get('lang');
+  }
+
+  if((lang == "" && navigator.language.substring(0, 2) == "zh") || (lang=="zh"))
+  {
+    document.getElementById("language")[1].selected = true;
+  }
+  else{
+    document.getElementById("language")[0].selected = true;
+
+    contents.forEach(tran => {
+      let element;
+      switch(tran.nameType)
       {
-        for (let i = 0; i < tran.value.length; i++)
-          element[i].innerHTML = tran.value[i];
+        case "id":
+          element = document.getElementById(tran.name);
+        break;
+        case "class":
+          element = document.getElementsByClassName(tran.name);
+        break;
+        case "tag":
+          element = document.getElementsByTagName(tran.name);
+        break;
       }
-      else
-        element.innerHTML = tran.value;
-    }
 
-    if(tran.tags != null){
-      tran.tags.forEach(tag=>{
-        let tagNames = [];
-
-        if(element.length > 0){
-            for (let i = 0; i < element.length; i++) {
-              var tags = element[i].getElementsByTagName(tag.tagName);
-              for (let j = 0; j < tags.length; j++) {
-                tagNames.push(tags[j]);
-              }
-            }
+      if(tran.value != null){
+        if(Array.isArray(tran.value))
+        {
+          for (let i = 0; i < tran.value.length; i++)
+            element[i].innerHTML = tran.value[i];
         }
         else
-          tagNames = element.getElementsByTagName(tag.tagName);
+          element.innerHTML = tran.value;
+      }
 
-        for (let i = 0; i < tag.values.length; i++)
-          tagNames[i].innerHTML = tag.values[i];
-      });
-    }
-  });
+      if(tran.tags != null){
+        tran.tags.forEach(tag=>{
+          let tagNames = [];
+
+          if(element.length > 0){
+              for (let i = 0; i < element.length; i++) {
+                var tags = element[i].getElementsByTagName(tag.tagName);
+                for (let j = 0; j < tags.length; j++) {
+                  tagNames.push(tags[j]);
+                }
+              }
+          }
+          else
+            tagNames = element.getElementsByTagName(tag.tagName);
+
+          for (let i = 0; i < tag.values.length; i++)
+            tagNames[i].innerHTML = tag.values[i];
+        });
+      }
+    });
+
+  }
+}
+
+function sentApplication(){
+  
+  const uri = "https://localhost:7246/api/ChatGPT";
+  const salary1Textbox = document.getElementById("salary1");
+
+  const item = {
+    salary1: salary1Textbox.value.trim(),
+    age: 0,
+    marriagestatus: "string",
+    purpose: "string",
+  }
+
+  fetch(uri, {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(item),
+  })
+  .then(response => response.json())
+  .then(data => {
+    handle(data);
+  })
+  .catch(error=> console.error('', error));
+}
+
+function handle(data){
 
 }

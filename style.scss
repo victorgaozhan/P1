@@ -33,7 +33,7 @@ body{
 
 // ----------------Logo & Nav---------------------
 nav{
-    padding: 1px 10% 1px 5%;
+    padding: 1px 5% 1px 5%;
     position: sticky;
     top: 0;
     background: rgba(0, 0, 0, 0.5); //linear-gradient($background_color, transparent);
@@ -42,7 +42,13 @@ nav{
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-
+    div{
+        display: flex;
+    }
+    select{
+        margin: 10px 0px;
+        background-color: rgba(255, 255, 255, 0.5);
+    }
     ul li{
         display: inline-block;
         margin: 10px 20px;
@@ -547,12 +553,12 @@ nav{
     // }
 
     input[type=text]{
-        width: 120px;
-        font-size: 18px;
+        width: 100px;
+        font-size: 17px;
     }
     select{
-        width: 105px;
-        font-size: 15px;
+        width: 95px;
+        font-size: 14px;
     }
 
     .form-button{
@@ -582,12 +588,22 @@ nav .fas{
 @media screen and (max-width: 1200px) {
     .chatGPT-form{
         grid-template-columns: repeat(2, minmax(350px, 1fr));
+        input[type=text]{
+            width: 95px;
+            font-size: 17px;
+        }
+        select{
+            width: 90px;
+            font-size: 14px;
+        }
+        
     }
 
     nav{
         .fas{
             display: block;
             font-size: 25px;
+            margin: 10px 20px;
         }
         ul{
             background: $underline_color;
