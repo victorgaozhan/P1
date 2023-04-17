@@ -209,7 +209,7 @@ function init_lang(){
 
 function sentApplication(){
   
-  const uri = "https://localhost:7246/api/ChatGPT";
+  const uri = "https://sallychatgpt20230322160345.azurewebsites.net/api/ChatGPT";//"https://localhost:7246/api/ChatGPT";
   const salary1 = document.getElementById("salary1").value.trim();
 
   const salary1Period = document.getElementById("salary1_period").selectedOptions[0].value;
