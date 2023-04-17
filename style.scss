@@ -92,6 +92,18 @@ nav{
     img{
         width: 140px;
     }
+
+    .nav-new{
+        content: "new!";
+        position: absolute;
+        font-size: 15px;
+        font-weight: 500;
+        left: 120px;
+        top: -10px;
+        transform: rotate(-20deg);
+        background-color: transparent;
+        color: $underline_color;
+    }
 }
 
 // -------------------Head Page -----------------------
@@ -385,14 +397,16 @@ nav{
 }
 .btn{
     display: block;
-    margin: 50px;
+    margin: 50px auto;
     width: fit-content;
     border: 1px solid $underline_color;
     padding: 14px 50px;
     border-radius: 6px;
     text-decoration: none;
     color: $font_color;
-    transition: background 0.5s;
+    background-color: $background_color;
+
+    transition: 0.5s;
 }
 
 .btn:hover{
@@ -461,7 +475,6 @@ nav{
 
 .btn.btn2{
     display: inline-block;
-    background: $underline_color;
 }
 
 .copyright{
@@ -567,6 +580,13 @@ nav{
         font-size: 20px;
         cursor: pointer;
     }
+
+    .form-button:disabled{
+        color: #868585;
+        background-color: #262626;
+        border: 1px solid rgba(255, 0, 79, 0.5);
+        cursor: auto;
+    }
 }
 
 //checked radio options
@@ -576,9 +596,56 @@ nav{
 }
 
 
-.chatGPT-report{
-    display:none;
+#chatGPT-report{
+    display: none;
+    grid-column: -1/1;
+    margin: 10px auto;
+    padding: 10px;
+    background-color: #262626;
+    border-radius: 5px;
+    .report-title{
+        font-size: 25px;
+        padding: 10px 10px;
+    }
+
+    transition: transmission 2s;
 }
+
+#report-contents{
+    font-size: 16px;
+    padding: 5px 15px;
+    background-color: #1b1a1a;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px 3px $main_red_color;
+}
+
+.loading:after {
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: bottom;
+    -webkit-animation: ellipsis steps(4, end) 900ms infinite;
+    animation: ellipsis steps(4, end) 900ms infinite;
+    content: "\2026";
+    width: 0px;
+  }
+  
+  @keyframes ellipsis {
+    to {
+      width: 40px;
+    }
+  }
+  
+  @-webkit-keyframes ellipsis {
+    to {
+      width: 40px;
+    }
+  }
+
+
+#report-notice{
+    margin: 10px 5px;
+}
+
 // -----------------------css for small screens ----------------
 nav .fas{
     display: none;
@@ -637,7 +704,7 @@ nav .fas{
     .ratetype{
         display: none;
     }
-
+    
     .ratetype-row{
         grid-column: span 4;
         max-width: 50%;

@@ -20,7 +20,7 @@
       <li><a href="#services">服务</a></li>
       <li><a href="#process">申请资料</a></li>
       <li><a href="#contact">联系方式</a></li>
-      <li><a href="#chatGPT">Chat-GPT评估</a></li>
+      <li><a href="#chatGPT">Chat-GPT评估<span class="nav-new">新!</span></a></li>
       <li><i class="fas fa-regular fa-circle-xmark" onclick="closemenu()"></i></li>
     </ul>
     <i class="fas fa-solid fa-bars" onclick="openmenu()"></i>
@@ -282,10 +282,10 @@
         <p><i class="fa-solid fa-paper-plane"></i>zongweigong@gmail.com</p>
         <p><i class="fa-solid fa-square-phone"></i>(61) 0466-809-027</p>
         <div class="social-icons">
-          <a href="#"><i class="fa-brands fa-facebook"></i></a>
+          <a href="https://facebook.com"><i class="fa-brands fa-facebook"></i></a>
           <a href="#"><i class="fa-brands fa-weixin"></i></a>
-          <a href="#"><i class="fa-brands fa-instagram"></i></a>
-          <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+          <!-- <a href="#"><i class="fa-brands fa-instagram"></i></a> -->
+          <!-- <a href="#"><i class="fa-brands fa-linkedin"></i></a> -->
         </div>
         <!-- <a href="#" download class="btn btn2">Download CV</a> -->
       </div>
@@ -304,14 +304,14 @@
 <!-- ------------------------  chatGPT ------------------------------- -->
 
   <div id="chatGPT" class="container">
-    <h1 class="sub-title">Chat-GPT智能评估</h1>
+    <h1 class="sub-title">AI智能评估</h1>
     <form action="javascript:void(0);" class="chatGPT-form" method="post" onsubmit="sentApplication()">
       <div class="form-card">
         <div class="formrow-title">收 入</div>
         <div class="formrow">
           <label for="salary1">本人基本净收入：</label>
           <div>
-            <input type="text" id="salary1" name="salary1" placeholder="AUD$" value="6000.00">
+            <input type="text" id="salary1" name="salary1" placeholder="AUD$:0.00" value="6000.00" required pattern="([0-9]*[.])?[0-9]+">
             <select class="period" id="salary1_period" name="salary1_period">
               <option>/年</option>
               <option selected>/月</option>
@@ -323,7 +323,7 @@
         <div class="formrow">
           <label for="salary2">配偶基本净收入：</label>
           <div>
-            <input type="text" id="salary2" name="salary2" placeholder="AUD$" value="0.00">
+            <input type="text" id="salary2" name="salary2" placeholder="AUD$" value="0.00"  pattern="([0-9]*[.])?[0-9]+">
             <select class="period" id="salary2_period" name="salary2_period">
               <option>/年</option>
               <option selected>/月</option>
@@ -336,7 +336,7 @@
        <div class="formrow">
         <label for="other1">其他净收入一：</label>
         <div>
-          <input type="text" id="other1" name="other1" placeholder="AUD$" value="0.00">
+          <input type="text" id="other1" name="other1" placeholder="AUD$" value="0.00" pattern="([0-9]*[.])?[0-9]+">
           <select class="period" id="other1_period" name="other1_period">
             <option>/年</option>
             <option selected>/月</option>
@@ -348,7 +348,7 @@
        <div class="formrow">
         <label for="other2">其他净收入二：</label>
         <div>
-          <input type="text" id="other2" name="other2" placeholder="AUD$"  value="0.00">
+          <input type="text" id="other2" name="other2" placeholder="AUD$"  value="0.00"  pattern="([0-9]*[.])?[0-9]+">
           <select class="period" id="other2_period" name="other2_period">
             <option>/年</option>
             <option selected>/月</option>
@@ -360,7 +360,7 @@
        <div class="formrow">
         <label for="other3">其他净收入三：</label>
         <div>
-          <input type="text" id="other3" name="other3" placeholder="AUD$" value="0.00">
+          <input type="text" id="other3" name="other3" placeholder="AUD$" value="0.00"  pattern="([0-9]*[.])?[0-9]+">
           <select class="period" id="other3_period" name="other3_period">
             <option>/年</option>
             <option selected>/月</option>
@@ -375,7 +375,7 @@
         <div class="formrow">
           <label for="expenses">生活日用支出：</label>
           <div>
-            <input type="text" id="expenses" name="expenses" placeholder="AUD$"  value="3000.00">
+            <input type="text" id="expenses" name="expenses" placeholder="AUD$"  value="3000.00" required pattern="([0-9]*[.])?[0-9]+">
             <select class="period" id="expenses_period" name="expenses_period">
               <option>/年</option>
               <option selected>/月</option>
@@ -385,10 +385,10 @@
           </div>
         </div>
         <div class="formrow">
-          <label for="expenses">房租/物业支出：</label>
+          <label for="rent">房租/物业支出：</label>
           <div>
-            <input type="text" id="expenses" name="expenses" placeholder="AUD$"  value="0.00">
-            <select class="period" id="expenses_period" name="expenses_period">
+            <input type="text" id="rent" name="rent" placeholder="AUD$"  value="0.00"  pattern="([0-9]*[.])?[0-9]+">
+            <select class="period" id="rent_period" name="rent_period">
               <option>/年</option>
               <option>/月</option>
               <option selected>/双周</option>
@@ -399,7 +399,7 @@
         <div class="formrow">
           <label for="carloans">现有车贷支出：</label>
           <div>
-            <input type="text" id="carloans" name="carloans" placeholder="AUD$" value="0.00">
+            <input type="text" id="carloans" name="carloans" placeholder="AUD$" value="0.00"  pattern="([0-9]*[.])?[0-9]+">
             <select class="period" id="carloans_period" name="carloans_period">
               <option>/年</option>            
               <option selected>/月</option>
@@ -411,7 +411,7 @@
         <div class="formrow">
           <label for="loans">现有房贷支出：</label>
           <div>
-            <input type="text" id="loans" name="loans" placeholder="AUD$" value="0.00">
+            <input type="text" id="loans" name="loans" placeholder="AUD$" value="0.00"  pattern="([0-9]*[.])?[0-9]+">
             <select class="period" id="loans_period" name="loans_period">
               <option>/年</option>            
               <option selected>/月</option>
@@ -422,15 +422,15 @@
         </div>
         <div class="formrow">
           <label for="loans_outstanding">剩余房贷还款额：</label>
-          <input type="text" id="loans_outstanding" name="loans_outstanding" placeholder="AUD$" value="0.00">
+          <input type="text" id="loans_outstanding" name="loans_outstanding" placeholder="AUD$" value="0.00"  pattern="([0-9]*[.])?[0-9]+">
         </div>
         <div class="formrow">
           <label for="loans_term">剩余房贷期限：</label>
-          <input type="text" id="loans_term" name="loans_term" placeholder="Year" value="0">
+          <input type="text" id="loans_term" name="loans_term" placeholder="Year" value="0"  pattern="[0-9]{1,2}">
         </div>
         <div class="formrow">
           <label for="card_limit">信用卡额度：</label>
-          <input type="text" id="card_limit" name="card_limit" placeholder="AUD$" value="5000.00">
+          <input type="text" id="card_limit" name="card_limit" placeholder="AUD$" value="5000.00"  pattern="([0-9]*[.])?[0-9]+">
         </div>
       </div>
       <div class="form-card">
@@ -460,30 +460,24 @@
             <div id="loan_type1" class="loanlink active-link" onclick="customradio('loanlink')" >自住</div>
             <div id="loan_type2"  class="loanlink" onclick="customradio('loanlink')">投资</div>
           </div>            
-          <!-- <div>          
-            <input type="radio" id="loan_type1" name="loan_type" checked>
-            <label for="loan_type1">自住</label>
-            <input type="radio" id="loan_type2" name="loan_type">
-            <label for="loan_type2">投资</label>
-          </div> -->
         </div>
         <div class="formrow">
           <label for="term">贷款年限：</label>
           <div>
-            <input type="text" id="term" name="term" placeholder="Year" value="30">                
+            <input type="text" id="term" name="term" placeholder="Year" value="30" required pattern="[0-9]{1,2}">                
           </div>
         </div>
       </div>
-        <button type="submit" class="form-button btn btn2">评 估</button>
+        <button type="submit" id="loan_submit" class="form-button btn">评 估</button>
     </form>
 
-    <div class="chatGPT-report">
+    <div id="chatGPT-report" class="chatGPT-report">
       <div class="report-title">
-        评估报告
+        Chat-GPT评估报告: 
       </div>
-      <div class="report-contents">
-        感谢您的提交，请稍候...
+      <div id="report-contents">
       </div>
+      <div id="report-notice"></div>
     </div>
   </div>
 
