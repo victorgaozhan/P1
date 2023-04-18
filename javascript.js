@@ -209,7 +209,7 @@ function init_lang(){
 
 function sentApplication(){
   
-  const uri = "https://sallychatgpt20230322160345.azurewebsites.net/api/ChatGPT";//"https://localhost:7246/api/ChatGPT";
+  const uri = "https://sallymortgagewebapi.azurewebsites.net/api/ChatGPT";//"https://localhost:7246/api/ChatGPT";
   const salary1 = document.getElementById("salary1").value.trim();
 
   const salary1Period = document.getElementById("salary1_period").selectedOptions[0].value;
@@ -274,14 +274,14 @@ function sentApplication(){
   reportNotice.innerText = "";
 
   button.disabled = true;
-
+  let jsonvalue = JSON.stringify(item);
   fetch(uri, {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(item),
+    body: jsonvalue,
   })
   .then(response => response.json())
   .then(data => {
